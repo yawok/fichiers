@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fichiers</title>
-</head>
-<body>
-    <h1>Fichiers!</h1>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if uploads %}
+
+{% for upload in uploads %}
+<h3><a href="{{ upload.file_url.url }}" target='_blank'>{{ upload.name }}</a></h3>
+<h6>{{ upload.description }}</h6>
+<br />
+{% endfor %}
+
+{% else %}
+<p>No uploads yet</p>
+{% endif %}
+
+{% endblock content %}
